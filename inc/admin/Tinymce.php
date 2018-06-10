@@ -16,7 +16,7 @@ class Mauv_TinyMCE {
  		if ( is_admin() ) {
 		    add_action( 'init', array( &$this, 'setup_tinymce_plugin' ) );
 		    add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts_css' ) );
-		    add_action( 'admin_print_footer_scripts', array( &$this, 'admin_footer_scripts' ) );
+		   // add_action( 'admin_print_footer_scripts', array( &$this, 'admin_footer_scripts' ) );
 		}
     }
     /**
@@ -81,24 +81,36 @@ function admin_footer_scripts() {
 	?>
 	<script type="text/javascript">
 		QTags.addButton( 'mauvera_shortcode_btn', 'Insert mauvera ticket button/link shortcode', insert_mauv_btn );
-		QTags.addButton( 'mauvera_shortcode_form', 'Insert mauvera form ticket shortcode', insert_mauv_btn('form') );
-		function insert_mauv(type = 'btn') {
-		    // Ask the user to enter a CSS class
-		    var result = prompt('Enter the ticket id');
-		    if ( !result ) {
+		QTags.addButton( 'mauvera_shortcode_form', 'Insert mauvera form ticket shortcode', insert_mauv_form );
+		function insert_mauv_btn() {
+		    // Ask the user to enter 
+		    var _ticket_id = prompt('Enter the ticket id');
+		    if ( !_ticket_id ) {
 		        // User cancelled - exit
 		        return;
 		    }
-		    if (result.length === 0) {
+		    if (_ticket_id.length === 0) {
 		        // User didn't enter anything - exit
 		        return;
 		    }
 		    // Insert
-			if(type == 'btn'){
-		    QTags.insertContent('[mauvera_ticket ticket_id= '+ticket_id+']click to buy ticket[/mauvera_ticket]');
-			}else{
-		    QTags.insertContent('[mauvera_ticket ticket_id= '+ticket_id+']click to buy ticket[/mauvera_ticket]');
-			}
+			QTags.insertContent('[mauvera_ticket_link ticket_id= '+_ticket_id+']click to buy ticket[/mauvera_ticket_link]');
+			
+		}	
+		function insert_mauv_form() {
+		    // Ask the user to enter 
+		    var _ticket_id = prompt('Enter the ticket id');
+		    if ( !_ticket_id ) {
+		        // User cancelled - exit
+		        return;
+		    }
+		    if (_ticket_id.length === 0) {
+		        // User didn't enter anything - exit
+		        return;
+		    }
+		    // Insert
+			QTags.insertContent('[mauvera_ticket_form ticket_id="'+_ticket_id+'" button_name = "Buy ticket"]');
+			
 		}
 	</script>
 	<?php

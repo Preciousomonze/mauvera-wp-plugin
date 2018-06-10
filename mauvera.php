@@ -38,7 +38,19 @@ if(!function_exists('mauv_pk_js_enqueue')){
 }
 //just incase we encounter a wretched theme that doesn't have wp_footer(), we should hook up with print scripts
 add_action( 'wp_print_scripts', 'mauv_pk_js_script' );
+
+//adding css
+if(!function_exists('mauv_pk_css_enqueue')){
+
+function mauv_pk_css_enqueue() {        
+	wp_enqueue_style( 'mauv_pk_css-style',plugins_url( '/assets/css/style.css', __FILE__ ));
+    }
+}
+add_action( 'wp_enqueue_scripts', 'mauv_pk_css_enqueue' );
+
+
 if(is_admin()){
 	include_once MAUV_PK_ADMIN_PATH.'Tinymce.php';
 	include_once MAUV_PK_ADMIN_PATH.'shortcodes.php';
 }
+

@@ -1,13 +1,21 @@
 /* script */
 var $ = jQuery;
 $(document).ready(function(){
-function mauv_tick(ticket_id,){
-	if(ticket_id == "" || ticket_id == 0){
+function mauvTicketTrig(ticketId,type){
+	if(ticketId == "" || ticketId == 0){
 		alert("An error occured, couldn't get event key");
 		return;
 	}
 	var formData = {};
-frame = MauvFrame({ 'eventPk' : ticket_id, userFormData : formData, onSuccess : function(){}, onClose : function(){} });
+	if(type == "form"){//serialise the ish
+		var mauvForm = $('form#mauv-form-ticket').serialiseArray();
+		var _formData = {};
+  for (var i = 0; i < mauvForm.length; i++){
+    _formData[mauvForm[i]['name']] = mauvForm[i]['value'];
+  }
+  var formData = _formData;
+	}
+frame = MauvFrame({ 'eventPk' : ticketId, userFormData : formData, onSuccess : function(){}, onClose : function(){} });
 //start
 frame.loadMauvFrame();
 }

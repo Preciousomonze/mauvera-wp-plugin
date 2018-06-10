@@ -15,29 +15,17 @@ jQuery(document).ready(function($) {
                     if( selected ){
                         //If text is selected when button is clicked
                         //Wrap shortcode around it.
-                        content =  '[mauvera_ticket ticket_id= '+ticket_id+']'+selected+'[/mauvera_ticket]';
+                        content =  '[mauvera_ticket_link ticket_id= '+ticket_id+']'+selected+'[/mauvera_ticket_link]';
                     }else{
-                        content =  '[mauvera_ticket ticket_id='+ticket_id+']click to buy ticket[/mauvera_ticket]';
+                        content =  '[mauvera_ticket_link ticket_id='+ticket_id+']click to buy ticket[/mauvera_ticket_link]';
                     }
 
                     tinymce.execCommand('mceInsertContent', false, content);
                 });
 
-                // Register command for when button is clicked
-                ed.addCommand('mauvera_insert_form_shortcode', function() {
-					var ticket_id = prompt('Enter the ticket id');
-					if(!ticket_id){ return; }
-					if(ticket_id.length == 0){//nothing was put in
-						return;
-					}
-                    content =  '[mauvera_ticket_form ticket_id="'+ticket_id+'" button_name = "Buy ticket"]';
-                    tinymce.execCommand('mceInsertContent', false, content);
-                });
-
             // Register buttons - trigger above command when clicked
-            ed.addButton('mauvera_shortcode_btn', {title : 'Insert mauvera ticket button/link shortcode', cmd : 'mauvera_insert_btn_shortcode', image: url + '/assets/images/btn.png' });
-            ed.addButton('mauvera_shortcode_form', {title : 'Insert mauvera form ticket shortcode', cmd : 'mauvera_insert_form_shortcode', image: url + '/assets/images/btn.png' });
-        },   
+            ed.addButton('mauvera_shortcode_btn', {title : 'Insert mauvera ticket button/link shortcode', cmd : 'mauvera_insert_btn_shortcode', image: url + '/assets/images/icon.png' });
+        }
     });
 //form
 
@@ -56,8 +44,8 @@ jQuery(document).ready(function($) {
                 });
 
             // Register buttons - trigger above command when clicked
-            ed.addButton('mauvera_shortcode_form', {title : 'Insert mauvera form ticket shortcode', cmd : 'mauvera_insert_form_shortcode', image: url + '/assets/images/btn.png' });
-        },   
+            ed.addButton('mauvera_shortcode_form', {title : 'Insert mauvera form ticket shortcode', cmd : 'mauvera_insert_form_shortcode', image: url + '/assets/images/icon.png' });
+        }   
     });
 
     // Register our TinyMCE plugin
