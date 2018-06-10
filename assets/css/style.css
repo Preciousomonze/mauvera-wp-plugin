@@ -1,0 +1,38 @@
+@import url(bootstrap.min.css);
+/**
+  * Main css file for styling the necessaries in the plugin
+  * Author : Precious Omonzejele
+  * too tired to comment for this one abeg, inspect the element to know the how the css is linked :(
+  */
+ 
+/*btn feel*/
+.mauv-btn-feel{
+border:1px solid rgba(0,0,0,0.2);
+padding:3px 8px;
+font-size:15px;
+text-decoration: none;
+color:inherit;
+box-shadow:none;
+}
+.mauv-btn-feel .icon{
+font-size:1.2em !important;
+}
+  .colour-required{
+    color:#ff0000 !important;
+  }
+  .required{
+    color:#ff0000 !important;  
+  }
+ 
+ .mauv-form-ticket{
+	 
+ }
+ .mauv-input{
+	
+ }
+ .mauv-form-ticket-btn{
+	 border-radius:5px;
+	 box-shadow:0px 1px 3px 2px rgba(0,0,0,0.3);
+	 padding:3px 8px;
+font-size:15px;
+ }

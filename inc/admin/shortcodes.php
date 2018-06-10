@@ -18,7 +18,7 @@ if(!defined('ABSPATH')){
 function mauv_link_shortcode($atts,$content = null){
 	$content = isset($content) ? trim($content) : 'Click to buy ticket';
 	$a = shortcode_atts(array(
-		'id' => '','class' =>'mauv_btn','ticket_id' => 0
+		'id' => '','class' =>'mauv-btn-feel','ticket_id' => 0
 	),$atts,'mauvera_ticket_link');
 	$result = '<a id="'.$a['id'].'" class="'.$a['class'].'" onclick="mauvTicketTrig('.$a['ticket_id'].',\"link\")">'.$content.'</a>';
 	return $result;
