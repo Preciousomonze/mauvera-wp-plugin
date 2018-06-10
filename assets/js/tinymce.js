@@ -1,7 +1,7 @@
 /* script to handle the tinymce for the wp*/
 jQuery(document).ready(function($) {
 
-    tinymce.create('mauvera.tinymce.btn.shortcode', {
+    tinymce.create('tinymce.plugins.mauv_btn_shortcode', {
         init : function(ed, url) {
                 // Register command for when button is clicked
                 ed.addCommand('mauvera_insert_btn_shortcode', function() {
@@ -25,11 +25,11 @@ jQuery(document).ready(function($) {
 
             // Register buttons - trigger above command when clicked
             ed.addButton('mauvera_shortcode_btn', {title : 'Insert mauvera ticket button/link shortcode', cmd : 'mauvera_insert_btn_shortcode', image: url + '/assets/images/icon.png' });
-        }
+        },
     });
 //form
 
-    tinymce.create('mauvera.tinymce.form.shortcode', {
+    tinymce.create('tinymce.plugins.mauv_form_shortcode', {
         init : function(ed, url) {
         
                 // Register command for when button is clicked
@@ -45,12 +45,12 @@ jQuery(document).ready(function($) {
 
             // Register buttons - trigger above command when clicked
             ed.addButton('mauvera_shortcode_form', {title : 'Insert mauvera form ticket shortcode', cmd : 'mauvera_insert_form_shortcode', image: url + '/assets/images/icon.png' });
-        }   
+        },   
     });
 
     // Register our TinyMCE plugin
     // first parameter is the button ID1
     // second parameter must match the first parameter of the tinymce.create() function above
-    tinymce.PluginManager.add('mauvera_shortcode_btn', mauvera.tinymce.btn.shortcode);
-    tinymce.PluginManager.add('mauvera_shortcode_form', mauvera.tinymce.form.shortcode);
+    tinymce.PluginManager.add('mauvera_shortcode_btn', tinymce.plugins.mauv_btn_shortcode);
+    tinymce.PluginManager.add('mauvera_shortcode_form', tinymce.plugins.mauv_form_shortcode);
 });
