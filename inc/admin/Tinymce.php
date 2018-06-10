@@ -16,7 +16,7 @@ class Mauv_TinyMCE {
  		if ( is_admin() ) {
 		    add_action( 'init', array( &$this, 'setup_tinymce_plugin' ) );
 		    add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts_css' ) );
-		   // add_action( 'admin_print_footer_scripts', array( &$this, 'admin_footer_scripts' ) );
+		    add_action( 'admin_print_footer_scripts', array( &$this, 'admin_footer_scripts' ) );
 		}
     }
     /**
@@ -49,7 +49,7 @@ class Mauv_TinyMCE {
 	 * @return array Modified array of registered TinyMCE Plugins
 	 */
 	function add_tinymce_plugin( $plugin_array ) {
-	    $plugin_array['custom_class'] = MAUV_PK_ASSETS_PATH. 'js/tinymce.js';
+	    $plugin_array['mauvera.tinymce.btn.shortcode'] = MAUV_PK_ASSETS_PATH. 'js/tinymce.js';
 	    return $plugin_array;
 	}
 	/**
@@ -80,8 +80,8 @@ function admin_footer_scripts() {
 	}
 	?>
 	<script type="text/javascript">
-		QTags.addButton( 'mauvera_shortcode_btn', 'Insert mauvera ticket button/link shortcode', insert_mauv_btn );
-		QTags.addButton( 'mauvera_shortcode_form', 'Insert mauvera form ticket shortcode', insert_mauv_form );
+		QTags.addButton( 'mauvera_shortcode_btn', 'Mauvera ticket link shortcode', insert_mauv_btn );
+		QTags.addButton( 'mauvera_shortcode_form', 'Mauvera form ticket shortcode', insert_mauv_form );
 		function insert_mauv_btn() {
 		    // Ask the user to enter 
 		    var _ticket_id = prompt('Enter the ticket id');
