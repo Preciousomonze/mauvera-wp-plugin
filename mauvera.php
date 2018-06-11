@@ -32,7 +32,7 @@ if(!function_exists('mauv_pk_js_enqueue')){
 		wp_register_script('mauv_pk_js-buy-ticket','https://mauvera.com/static/js/webpack_bundles/inlineplugin.js',null,$mauv_pk_version,true);
 		wp_enqueue_script( 'mauv_pk_js-buy-ticket');
 		//
-		wp_register_script('mauv_pk_js-buy-ticket-trigger',plugins_url( '/assets/js/script.js', __FILE__ ),null,$mauv_pk_version,true);
+		wp_register_script('mauv_pk_js-buy-ticket-trigger',plugins_url( '/assets/js/script.js', __FILE__ ),array('jquery'),$mauv_pk_version,true);
 		wp_enqueue_script( 'mauv_pk_js-buy-ticket-trigger');
 	}
 }
@@ -51,6 +51,7 @@ add_action( 'wp_enqueue_scripts', 'mauv_pk_css_enqueue' );
 
 if(is_admin()){
 	include_once MAUV_PK_ADMIN_PATH.'Tinymce.php';
-	include_once MAUV_PK_ADMIN_PATH.'shortcodes.php';
 }
+include_once MAUV_PK_ADMIN_PATH.'shortcodes.php';
+
 

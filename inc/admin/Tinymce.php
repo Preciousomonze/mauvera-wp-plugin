@@ -49,7 +49,9 @@ class Mauv_TinyMCE {
 	 * @return array Modified array of registered TinyMCE Plugins
 	 */
 	function add_tinymce_plugin( $plugin_array ) {
-	    $plugin_array['mauvera.tinymce.btn.shortcode'] = MAUV_PK_ASSETS_PATH. 'js/tinymce.js';
+		  //enqueue TinyMCE plugin script with its ID.
+	    $plugin_array['mauv_shortcode_btn'] = MAUV_PK_ASSETS_PATH. 'js/tinymce_link.js';
+	    $plugin_array['mauv_shortcode_form'] = MAUV_PK_ASSETS_PATH. 'js/tinymce_form.js';
 	    return $plugin_array;
 	}
 	/**
@@ -60,6 +62,7 @@ class Mauv_TinyMCE {
 	 * @return array Modified array of registered TinyMCE Buttons
 	 */
 	function add_tinymce_toolbar_button( $buttons ) {
+		 //register buttons with their id.
 	    array_push( $buttons, 'mauvera_shortcode_btn' );
 	    array_push( $buttons, 'mauvera_shortcode_form' );
 	    return $buttons;

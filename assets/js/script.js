@@ -1,6 +1,10 @@
 /* script */
 var $ = jQuery;
-$(document).ready(function(){
+/**
+ * trigger the popup
+ *@param int ticketId
+ *@param string type, if its form type, does the necessary, else, bla, i'm tired jare.
+ */
 function mauvTicketTrig(ticketId,type){
 	if(ticketId == "" || ticketId == 0){
 		alert("An error occured, couldn't get event key");
@@ -19,4 +23,3 @@ frame = MauvFrame({ 'eventPk' : ticketId, userFormData : formData, onSuccess : f
 //start
 frame.loadMauvFrame();
 }
-});
