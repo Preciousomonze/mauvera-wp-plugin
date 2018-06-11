@@ -19,6 +19,7 @@ function mauvTicketTrig(ticketId,type){
   }
   var formData = _formData;
 	}
+//chibuzor, i guess this is where the issue is coming from, adjust, thanks :), if what you did isn't easily explainable, comment them, 
 frame = MauvFrame({ 'eventPk' : ticketId, userFormData : formData, onSuccess : function(){}, onClose : function(){} });
 //start
 frame.loadMauvFrame();
