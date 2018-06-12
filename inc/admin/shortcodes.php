@@ -45,7 +45,7 @@ function mauv_form_shortcode($atts,$content = null){
 	<input type="text" name="last_name" class="mauv-input form-control" required autocomplete" placeholder="Last Name *">
 	<input type="email" name="email" class="mauv-input form-control" required autocomplete" placeholder="Email address *">
 	<input type="tel" name="phone_number" class="mauv-input form-control" required autocomplete" placeholder="Phone number *">
-	<button type="submit" class="form-btn">'.$a['button_name'].'</button>
+	<button type="submit" class="mauv-form-btn">'.$a['button_name'].'</button>
 	</form>
 	
 	<script type="text/javascript">
