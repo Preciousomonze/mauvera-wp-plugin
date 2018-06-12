@@ -32,7 +32,7 @@ if(!function_exists('mauv_pk_js_enqueue')){
 		wp_register_script('mauv_pk_js-buy-ticket','https://mauvera.com/static/js/webpack_bundles/inlineplugin.js',null,$mauv_pk_version,true);
 		wp_enqueue_script( 'mauv_pk_js-buy-ticket');
 		wp_enqueue_script('mauv_pk_js-jquery','https://code.jquery.com/jquery-2.2.4.min.js','','',true);
-		 wp_localize_script('mauv_pk_js-jquery','mauvjquerydata',array(array('integrity'=>"sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="),array('crossorigin'=>"anonymous")));
+		 wp_localize_script('mauv_pk_js-jquery','mauvjquerydata',array('integrity'=>"sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=",'crossorigin'=>"anonymous"));
    
 		//local script
 		wp_register_script('mauv_pk_js-buy-ticket-trigger',plugins_url( '/assets/js/script.js', __FILE__ ),array('jquery','jquery-migrate'),$mauv_pk_version,true);
@@ -41,17 +41,6 @@ if(!function_exists('mauv_pk_js_enqueue')){
 }
 //just incase we encounter a wretched theme that doesn't have wp_footer(), we should hook up with print scripts
 add_action( 'wp_print_scripts', 'mauv_pk_js_script' );
-//filter for script
-//helps add the attributes for cdn ish, like external script src
-function mauv_pk_unclean_url( $good_protocol_url, $original_url, $_context){
-    if (false !== strpos($original_url, 'integrity')){
-      //remove_filter('clean_url','mauv_pk_unclean_url',10,3);
-      $url_parts = parse_url($good_protocol_url);
-      return $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . ' interity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"';
-    }
-    return $good_protocol_url;
-}
-add_filter('clean_url','mauv_pk_unclean_url',10,3);
 
 //adding css
 if(!function_exists('mauv_pk_css_enqueue')){
