@@ -1,5 +1,12 @@
 /* script */
 var $ = jQuery;
+jQuery( function( $ ) {
+    $( document ).ready(function() {
+   //     var strapatt = document.getElementById('');
+	 //   strapatt.setAttribute("integrity", "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb");
+	  //  strapatt.setAttribute("crossorigin", "anonymous");
+    });
+});
 /**
  * trigger the popup
  *@param int ticketId
