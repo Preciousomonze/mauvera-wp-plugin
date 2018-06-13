@@ -11,16 +11,17 @@ function mauvTicketTrig(ticketId,type){
 		alert("An error occured, couldn't get event key");
 		return;
 	}
-	var formData = {};
+	var mauvFormData = {};
 	if(type == "form"){//serialise the ish
 		var mauvForm = $('form#mauv-form-ticket').serializeArray();
 		var _formData = {};
 		for (var i = 0; i < mauvForm.length; i++){
 			_formData[mauvForm[i]['name']] = mauvForm[i]['value'];
 		}
-		var formData = JSON.stringify(_formData);
+		 mauvFormData = JSON.stringify(_formData);
 	}
-frame = new MauvFrame({ 'eventPk' : ticketId, userFormData : formData, onSuccess : function(){}, onClose : function(){} });
+	
+frame = new MauvFrame({ 'eventPk' : ticketId, userFormData : mauvFormData, onSuccess : function(){}, onClose : function(){} });
 //start
 frame.loadMauvFrame();
 }
