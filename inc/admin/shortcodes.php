@@ -22,7 +22,7 @@ function mauv_link_shortcode($atts,$content = null){
 	$a = shortcode_atts(array(
 		'id' => '','class' =>'mauv-btn-feel','ticket_id' => 0
 	),$atts,'mauvera_ticket_link');
-	$result = '<a id="'.$a['id'].'" class="'.$a['class'].'" onclick="mauvTicketTrig('.$a['ticket_id'].',\'link\')">'.$content.'</a>';
+	$result = '<a href="#mauv-open" id="'.$a['id'].'" class="'.$a['class'].'" onclick="mauvTicketTrig('.$a['ticket_id'].',\'link\')">'.$content.'</a>';
 	return $result;
 }
 add_shortcode('mauvera_ticket_link','mauv_link_shortcode');
@@ -50,7 +50,7 @@ function mauv_form_shortcode($atts,$content = null){
 	
 	<script type="text/javascript">
 $(document).ready(function(){
-	$("form#mauv-form-ticket").submit(function(e){alert("yup");
+	$("form#mauv-form-ticket").submit(function(e){
 		e.preventDefault();
 		mauvTicketTrig('.$a['ticket_id'].',"form");
 	});

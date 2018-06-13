@@ -94,7 +94,7 @@ function admin_footer_scripts() {
 		        return;
 		    }
 		    // Insert
-			QTags.insertContent('[mauvera_ticket_link ticket_id= '+_ticket_id+']click to buy ticket[/mauvera_ticket_link]');
+			QTags.insertContent('[mauvera_ticket_link ticket_id="'+_ticket_id+'"]click to buy ticket[/mauvera_ticket_link]');
 			
 		}	
 		function insert_mauv_form() {

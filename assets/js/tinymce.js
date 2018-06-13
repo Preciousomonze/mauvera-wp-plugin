@@ -1,11 +1,10 @@
 /* script to handle the tinymce for the wp*/
-jQuery(document).ready(function($) {
-
+(function() {
     tinymce.create('tinymce.plugins.MauvShortcode', {
         init : function(ed, url) {
             // Register buttons - trigger above command when clicked
-             ed.addButton('mauvera_shortcode_btn', {title : 'Insert mauvera ticket button/link shortcode', cmd : 'mauvera_insert_btn_shortcode', image: url + '/assets/images/icon.png' });
-           ed.addButton('mauvera_shortcode_form', {title : 'Insert mauvera form ticket shortcode', cmd : 'mauvera_insert_form_shortcode', image: url + '/assets/images/icon.png' });
+             ed.addButton('mauvera_shortcode_btn', {title : 'Insert mauvera ticket button/link shortcode', cmd : 'mauvera_insert_btn_shortcode', image: mauvimagesrc.path + 'icon.png' });
+           ed.addButton('mauvera_shortcode_form', {title : 'Insert mauvera form ticket shortcode', cmd : 'mauvera_insert_form_shortcode', image: mauvimagesrc.path + 'icon.png' });
         
 				ed.addCommand('mauvera_insert_btn_shortcode', function() {
 					var ticket_id = prompt('Enter the ticket id');
@@ -18,9 +17,9 @@ jQuery(document).ready(function($) {
                     if( selected ){
                         //If text is selected when button is clicked
                         //Wrap shortcode around it.
-                        content =  '[mauvera_ticket_link ticket_id= '+ticket_id+']'+selected+'[/mauvera_ticket_link]';
+                        content =  '[mauvera_ticket_link ticket_id="'+ticket_id+'"]'+selected+'[/mauvera_ticket_link]';
                     }else{
-                        content =  '[mauvera_ticket_link ticket_id='+ticket_id+']click to buy ticket[/mauvera_ticket_link]';
+                        content =  '[mauvera_ticket_link ticket_id="'+ticket_id+'"]click to buy ticket[/mauvera_ticket_link]';
                     }
 
                     tinymce.execCommand('mceInsertContent', false, content);
@@ -60,4 +59,4 @@ jQuery(document).ready(function($) {
     // second parameter must match the first parameter of the tinymce.create() function above
     tinymce.PluginManager.add('mauv_shortcode', tinymce.plugins.MauvShortcode);
 		
-    });
+})();	
