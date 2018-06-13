@@ -15,17 +15,10 @@ MVP Mauvera plugin for Wordpress
 Download the zip file of the plugin, and upload to either 
 
 
-#### 2 - Global Settings
-
-You can set some global settings for all Inline Tweets in your wordpress site. Do this by going to **Settings > Inline Tweets**. You can set the following global settings -
-
-- Add a twitter username (without the @) to append to the tweet
-- Add hashtags to the tweet (comma-separated, no spaces)
-- Wrapper element for tweets (default is `<span>`)
 
 
 
-#### 3 - Use Shortcode
+#### 2 - Use Shortcode
 
 You can now use the shortcode anywhere on your wordpress site. 
 
