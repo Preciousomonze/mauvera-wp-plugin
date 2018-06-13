@@ -118,4 +118,4 @@ function admin_footer_scripts() {
  
 }
  
-$mauv_tinymce = new Mauv_TinyMCE;
+$mauv_tinymce = new Mauv_TinyMCE();
