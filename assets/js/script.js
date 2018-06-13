@@ -20,7 +20,6 @@ function mauvTicketTrig(ticketId,type){
 		}
 		 mauvFormData = JSON.stringify(_formData);
 	}
-	
 frame = new MauvFrame({ 'eventPk' : ticketId, userFormData : mauvFormData, onSuccess : function(){}, onClose : function(){} });
 //start
 frame.loadMauvFrame();
