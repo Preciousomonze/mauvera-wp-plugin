@@ -21,8 +21,6 @@ if ( !function_exists( 'add_action' ) ) {
 define( 'MAUV_PK_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
 define('MAUV_PK_ADMIN_PATH', 'inc/admin/');
  define('MAUV_PK_ASSETS_PATH', plugins_url('assets/',__FILE__));
-  
-  
 //version
 $mauv_pk_version = '1.0';
 //start enqeueing
@@ -31,12 +29,6 @@ if(!function_exists('mauv_pk_js_enqueue')){
 		//p_enqueue_script('NameMySccript','path/to/MyScript','dependencies_MyScript', 'VersionMyScript', 'InfooterTrueorFalse');
 		wp_register_script('mauv_pk_js-buy-ticket','https://mauvera.com/static/js/webpack_bundles/inlineplugin.js',null,$mauv_pk_version,true);
 		wp_enqueue_script( 'mauv_pk_js-buy-ticket');
-		//new jquery
-		wp_enqueue_script('mauv_pk_js-jquery','https://code.jquery.com/jquery-3.2.0.min.js','','',true);
-		 wp_localize_script('mauv_pk_js-jquery','mauvjquerydata',array('integrity'=>"sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=",'crossorigin'=>"anonymous"));
-		 //migrate
-			wp_enqueue_script('mauv_pk_js-jquery-migrate','https://code.jquery.com/jquery-migrate-3.0.0.min.js','','',true);
-		 wp_localize_script('mauv_pk_js-jquery-migrate','mauvjquerymigdata',array('integrity'=>"sha256-JklDYODbg0X+8sPiKkcFURb5z7RvlNMIaE3RA2z97vw=",'crossorigin'=>"anonymous"));
 		
 		//for tinymce. please this must be loaded in the admin side
 		wp_localize_script('mauv_pk_js-buy-ticket','mauvimagesrc',array('path'=>MAUV_PK_ASSETS_PATH.'images/'));
