@@ -1,12 +1,6 @@
 /* script */
 var $ = jQuery;
-jQuery( function( $ ) {
-    $( document ).ready(function() {
-   //     var strapatt = document.getElementById('');
-	 //   strapatt.setAttribute("integrity", "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb");
-	  //  strapatt.setAttribute("crossorigin", "anonymous");
-    });
-});
+
 /**
  * trigger the popup
  *@param int ticketId
@@ -30,4 +24,12 @@ function mauvTicketTrig(ticketId,type){
 frame = new MauvFrame({ 'eventPk' : ticketId, userFormData : formData, onSuccess : function(){}, onClose : function(){} });
 //start
 frame.loadMauvFrame();
+}
+
+/**
+ * for some reason, serialiseArray didnt work, and when trying to update jquery and add migrate, weird issue
+ * @pram string value
+ */
+function mauvSerialiseToJson(value){
+	var result = '';
 }
