@@ -49,6 +49,7 @@ function mauv_form_shortcode($atts,$content = null){
 	</form>
 	
 	<script type="text/javascript">
+	var $ = jQuery;
 $(document).ready(function(){
 	$("form#mauv-form-ticket").submit(function(e){
 		e.preventDefault();
